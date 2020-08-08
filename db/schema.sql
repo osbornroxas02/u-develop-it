@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS parties;
 DROP TABLE IF EXISTS candidates;
 
-
 CREATE TABLE parties (
     id INTEGER PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
