@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
 const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
 const inputCheck = require('./utils/inputCheck');
 
 const PORT = process.env.PORT || 3001;
@@ -17,7 +17,6 @@ const db = new sqlite3.Database('./db/election.db', err => {
 
     console.log('Connected to the election database.');
 });
-
 
 
 // CANDIDATES SECTION
@@ -83,17 +82,15 @@ app.delete('/api/candidate/:id', (req, res) => {
 });
 
 app.put('/api/candidate/:id', (req, res) => {
-
     const sql = `UPDATE candidates SET party_id = ? 
                  WHERE id = ?`;
-    const params = [req.body.party_id, req.params.id];
-
     const errors = inputCheck(req.body, 'party_id');
 
     if (errors) {
         res.status(400).json({ error: errors });
         return;
     }
+    const params = [req.body.party_id, req.params.id];
 
     db.run(sql, params, function (err, result) {
         if (err) {
@@ -153,7 +150,6 @@ app.post('/api/candidate', ({ body }, res) => {
     // });
 
 
-
     //PARTIES SECTION 
 
     // Get all parties
@@ -206,11 +202,6 @@ app.post('/api/candidate', ({ body }, res) => {
 
 
 
-
-
-
-
-
 });//Must keep this at the end of everything
 
 
@@ -220,3 +211,5 @@ db.on('open', () => {
         console.log(`Server running on port ${PORT}`);
     });
 });
+
+
