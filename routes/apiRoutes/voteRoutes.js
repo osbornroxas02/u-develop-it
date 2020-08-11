@@ -31,7 +31,6 @@ router.post('/vote', ({ body }, res) => {
     });
 });
 
-
 // Get all votes
 router.get('/vote', (req, res) => {
     const sql = `SELECT candidates.*, parties.name 
@@ -55,7 +54,6 @@ router.get('/vote', (req, res) => {
         });
     });
 });
-
 
 
 module.exports = router;
