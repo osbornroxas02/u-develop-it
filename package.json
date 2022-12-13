@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/osbornroxas02/u-develop-it#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "seed": "^0.4.4",
     "sqlite3": "^5.0.0"
   },
